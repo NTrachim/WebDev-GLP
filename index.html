@@ -7,15 +7,20 @@
   <link rel="stylesheet" href="./assets/css/main.css">
 
   <style>
-    body {
+    html, body {
       margin: 0;
       padding: 0;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      min-height: 100vh;
-      text-align: center;
-      background-color: #2e272c; /* background matches darkest color */
+      width: 100%;
+      height: 100%;
+      background-color: #2e272c;
+    }
+
+    /* FORCE centering regardless of external styles */
+    body {
+      display: flex !important;
+      justify-content: center !important;
+      align-items: center !important;
+      text-align: center !important;
     }
 
     .container {
@@ -23,7 +28,6 @@
       flex-direction: column;
       align-items: center;
       width: 100%;
-      max-width: 600px;
       padding: 20px;
     }
 
