@@ -1,0 +1,353 @@
+:root {
+  --bg-color: #000000;
+  --bg-nav-color: #754f3b;
+  --bg-nav-color-dark: rgb(40, 50, 65);
+  --white: #ffffff;
+  --lightred: rgb(250, 172, 172);
+  --lighterred: rgb(228, 188, 188);
+  --gray: #b8b8b8;
+  --blue: #80d5ff;
+  --orange: #ffb787;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--bg-color);
+  font-size: 1.2rem;
+  overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--lightred);
+
+  /* Nunito */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  /* color: var(--white) */
+  color: var(--lighterred);
+}
+
+.header-blurb-container {
+  color: var(--lightred);
+}
+
+.header-menu-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.header-menu-container div {
+  flex: 1;
+  text-align: center;
+}
+
+.header-blurb-container a {
+  color: var(--lightred);
+}
+
+a:hover {
+  color: grey;
+}
+
+a:active {
+  color: red;
+}
+
+.bungee-tint-regular {
+  font-family: "Bungee Tint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+h1 {
+  font-size: 3rem;;
+}
+
+h1, h2, h3 {
+  font-family: "Bungee Tint", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+p {
+  margin-top: .3rem;
+  margin-bottom: .3rem;
+}
+
+small {
+  font-size: 12px;
+}
+
+
+ul {
+  margin-left: 1rem;
+}
+
+li {
+  margin-bottom: .5rem;
+  margin-left: .5rem;
+}
+
+.container {
+  padding: 20px;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.container img {
+  /* padding-bottom: 10px; */
+}
+
+.img-feature-container {
+  /* border: 1px solid red; */
+  margin-bottom: .3rem;
+}
+
+.img-feature {
+  margin: 0 auto;
+  width: 100%;
+}
+
+.custom-bullets {
+  list-style-type: none;
+}
+
+.custom-bullets li::before {
+  content: '•';
+  margin-right: 10px;
+}
+
+hr {
+  display: block;
+  height: 1px;
+  border: 0;
+  border-top: 1px solid var(--lighterred);
+  margin: 1em 0;
+  padding: 0;
+  display: none;
+}
+
+.name-container {
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+/* NAVIGATION */
+nav {
+  font-family: monospace;
+  font-size: 15px;
+  display: flex;
+  justify-content: space-between;
+  background-color: var(--bg-nav-color);
+}
+
+nav a {
+  color: var(--lightred);
+  text-decoration: none;
+  font-weight: normal;
+}
+
+nav a:hover {
+  color: var(--lightred);
+  text-decoration: underline;
+}
+
+.web-nav {
+  display: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.web-nav-item {
+  height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px
+}
+
+.web-nav-item:hover {
+  background-color: var(--bg-nav-color-dark);
+}
+
+.mobile-nav {
+  margin-right: 10px;
+  height: 30px;
+  width: 30px;
+  display: none;
+  filter: invert(90%);
+}
+
+@media screen and (max-width: 500px) {
+  nav {
+    justify-content: space-between;
+  }
+
+  .web-nav {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: inherit;
+  }
+
+}
+
+.sidebar {
+  width: 200px;
+  height: 500px;
+  position: absolute;
+  top: 50px;
+  right: 0px;
+  background: transparent;
+  overflow: hidden;
+}
+
+.sidebar-items {
+  width: 200px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  padding: 5px 10px;
+  background-color: var(--bg-nav-color);
+  transform: translate(200px, 0px);
+  transition: 0.3s all ease-out;
+}
+
+.sidebar-items-item {
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* END NAVIGATION */
+
+footer {
+  padding: 10px;
+  /* trick to make footer stay at bottom... needs body to have flex */
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: inherit;
+}
+
+footer a {
+  color: var(--blue);
+  text-decoration: none;
+  font-weight: normal;
+}
+
+footer a:hover {
+  color: var(--orange);
+  text-decoration: underline;
+}
+
+.container {
+  padding: .8rem;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  /* border: 1px solid red; */
+}
+
+.container img {
+  /* margin-top: .4rem; */
+  /* margin-bottom: .4rem; */
+}
+
+
+
+.artists-container {
+  column-count: 2;
+  column-gap: 40px; /* Adjust space between columns */
+}
+
+.artists-container ul {
+  padding: 0;
+  list-style: none;
+}
+
+.artists-container li {
+  break-inside: avoid;
+  margin-bottom: 0.5em;
+}
+
+@media (max-width: 600px) {
+  .artists-container {
+    column-count: 1;
+  }
+}
+
+
+/* ================================== */
+/* Collapsible (Wikipedia-ish) */
+.collapsible {
+  border: 2px solid #898989;
+  border-radius: .5rem;
+  /* margin-top: .5rem; */
+  margin-bottom: .5rem;
+}
+
+.collapsible > summary {
+  list-style: none;          /* hide default marker */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  cursor: pointer;
+  font-weight: 600;
+  user-select: none;
+  padding: 0.25rem 0.75rem;
+}
+
+.collapsible > summary:hover {
+  background-color: #202020;          /* hover bg */
+  border-radius: .5rem;
+}
+
+.collapsible > summary::-webkit-details-marker {
+  display: none;             /* hide default marker in WebKit */
+}
+
+.collapsible .caret {
+  transition: transform 150ms ease;
+  flex: 0 0 auto;
+}
+
+.collapsible[open] .caret {
+  transform: rotate(180deg);
+}
+
+/* Optional: nicer inner content spacing */
+.collapsible > *:not(summary) {
+  margin-block: 0.5rem 0.75rem;
+}
+/* ================================== */
