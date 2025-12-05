@@ -1,0 +1,40 @@
+:root {
+  --bg-color: #000000;
+  --bg-nav-color: #754f3b;
+  --bg-nav-color-dark: rgb(40, 50, 65);
+  --white: #ffffff;
+  --lightred: rgb(250, 172, 172);
+  --lighterred: rgb(228, 188, 188);
+  --gray: #b8b8b8;
+  --blue: #80d5ff;
+  --orange: #ffb787;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  color: var(--white);
+  background-color: var(--bg-color);
+  font-size: 1.2rem;
+  overscroll-behavior: none;
+  display: flex;
+  flex-direction: column;
+  font-family: sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+  color: var(--lightred);
+
+  /* Nunito */
+  font-family: "Nunito", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+a {
+  color: var(--lighterred);
+}
