@@ -5,35 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Goose Light Productions</title>
   <link rel="stylesheet" href="./assets/css/main.css">
+
   <style>
     body {
-      text-align: center; /* Center the content horizontally */
       margin: 0;
       padding: 0;
-      height: 100vh;
+      display: flex;
+      justify-content: center;   /* center horizontally */
+      align-items: center;       /* center vertically */
+      min-height: 100vh;
+      text-align: center;
+      background-color: #fff;
+    }
+
+    .container {
       display: flex;
       flex-direction: column;
-      justify-content: center; /* Center content vertically */
       align-items: center;
+      width: 100%;
+      max-width: 600px; /* optional: keeps the layout neat on desktops */
+      padding: 20px;
     }
 
     img {
       max-width: 100%;
       height: auto;
-      margin-top: 20px; /* Adjust space between image and contact link */
     }
 
     a {
       font-size: 1.5rem;
-      text-decoration: none; /* Optional: Remove underline */
-      margin-bottom: 20px; /* Adjust space between contact link and other content */
+      text-decoration: none;
+      margin-top: 20px; /* space below the image */
     }
   </style>
 </head>
+
 <body>
-  <div>
+  <div class="container">
+    <img src="./assets/images/background_image.png" alt="Background Image">
     <a href="mailto:gooselightproductions@gmail.com">contact</a>
   </div>
-  <img src="./assets/images/background_image.png" alt="Background Image">
 </body>
 </html>
