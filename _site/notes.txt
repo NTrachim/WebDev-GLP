@@ -10,3 +10,16 @@ How to list posts in blog section:
     {% endfor %}
   </ul>
 </section> -->
+
+
+
+
+
+<footer>
+  <p style="font-size: .8rem;">&copy; {{ site.time | date: '%Y' }} {{ site.title }}. All rights reserved.</p>
+</footer>
+
+<main>
+  {{ content }}
+</main>
+
