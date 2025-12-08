@@ -159,25 +159,29 @@ vec3 palette(float t){
       amp *= 0.5;
     }
 
-    // pointer influence (smooth edges)
-vec2 mp = u_pointer.xy / u_resolution.xy * 2.0 - 1.0;
-mp.y *= -1.0;
+    // pointer influence (normalized to -1..1, y flipped)
+    vec2 mp = u_pointer.xy / u_resolution.xy * 2.0 - 1.0;
+    mp.y *= -1.0;
+    // scale pointer to canvas normalization
+    float dist = length((p - mp) * vec2(u_aspect, 1.0));
+    v += normalize(vec2(sin(t*2.0 + dist*6.0), cos(t*1.7 - dist*4.0))) * exp(-dist*5.0) * 1.4 * u_detail;
 
-// distance in normalized coords
-float dist = length((p - mp) * vec2(u_aspect, 1.0));
+    // advect uv by velocity
+    vec2 adv = uv + v * 0.06;
 
-// Smoother falloff using smoothstep-based curve
-float falloff = smoothstep(1.2, 0.0, dist);     // wide & smooth
-falloff = pow(falloff, 1.5);                    // fine-tune softness
+    // layered noise color
+    float n1 = noise(adv * (1.0 + u_detail*3.0) + vec2(t*0.12));
+    float n2 = noise(adv * (2.2 + u_detail*6.0) - vec2(t*0.07));
+    float mixv = clamp(n1*0.6 + n2*0.4, 0.0, 1.0);
 
-// Gentle turbulence around pointer
-vec2 swirl = normalize(vec2(
-    sin(t * 2.0 + dist * 4.0),
-    cos(t * 1.8 + dist * 3.5)
-));
+    vec3 col = palette(mixv + length(v)*0.12 + sin(t*0.2)*0.03);
 
-// Apply smooth pointer velocity
-v += swirl * falloff * 1.1 * u_detail;
+    // subtle vignette
+    float vign = smoothstep(0.95, 0.25, length((uv - 0.5) * vec2(u_aspect, 1.0)));
+    col *= mix(1.0, 0.75, vign);
+
+    gl_FragColor = vec4(col, 1.0);
+  }
   </script>
 
   <script>
