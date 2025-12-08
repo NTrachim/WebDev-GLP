@@ -21,14 +21,10 @@ body {
   background-color: var(--bg-color);
   font-size: 1.2rem;
   overscroll-behavior: none;
-  display: flex;
-  flex-direction: column;
-  font-family: sans-serif;
-  max-width: 800px;
-  margin: 0 auto;
-  color: var(--lightred);
 
-  /* Nunito */
+  /* Removed layout-breaking rules: 
+     display:flex, max-width, margin auto, flex-direction */
+  
   font-family: "Nunito", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
