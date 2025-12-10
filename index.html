@@ -5,14 +5,13 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>Goose Light Productions</title>
   <style>
-    /* Basic reset + body fallback color */
-    html,body{height:100%;margin:0;padding:0}
-    body{
-      font-family:"Nunito",system-ui,-apple-system,Segoe UI,Roboto, Arial, sans-serif;
-      background: #2e272c; /* fallback background color */
+    html, body { height:100%; margin:0; padding:0; }
+    body {
+      font-family:"Nunito", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: #2e272c;
       color: white;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
     }
 
     /* Fullscreen WebGL canvas */
@@ -23,13 +22,13 @@
       height: 100%;
       display: block;
       z-index: -1;
-      pointer-events: none; /* allow pointer interaction to pass to page; we still listen globally */
+      pointer-events: none;
     }
 
-    /* Page content centered laterally */
+    /* Page content */
     .page {
-      max-width: 900px;
-      margin: 0 auto;        /* lateral centering */
+      max-width: 1000px;
+      margin: 0 auto;
       padding: 48px 20px;
       text-align: center;
       position: relative;
@@ -55,10 +54,52 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Very small devices: reduce padding */
-    @media (max-width:420px){
-      .page { padding: 24px 12px; }
-      .contact { font-size: 1rem; }
+    /* Placeholder text section */
+    .future-text {
+      margin: 40px 0;
+      padding: 20px;
+      background: rgba(0,0,0,0.15);
+      border-radius: 8px;
+      color: #ddd;
+      font-size: 1rem;
+    }
+
+    /* Future gallery section */
+    .future-content {
+      margin-top: 40px;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 20px;
+    }
+
+    .future-item {
+      flex: 1 1 calc(33% - 20px);
+      max-width: calc(33% - 20px);
+      text-align: center;
+    }
+
+    .future-item img,
+    .future-item iframe {
+      width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+
+    .future-item p {
+      margin-top: 8px;
+      font-size: 0.95rem;
+      color: #ccc;
+    }
+
+    /* Responsive adjustments */
+    @media (max-width:900px){
+      .future-item { flex: 1 1 calc(50% - 20px); max-width: calc(50% - 20px); }
+    }
+
+    @media (max-width:600px){
+      .future-item { flex: 1 1 100%; max-width: 100%; }
+      .future-item iframe { height: 200px; }
     }
 
     /* Accessibility: hide canvas from screen readers */
@@ -66,280 +107,220 @@
   </style>
 </head>
 <body>
-  <!-- GPU fluid canvas -->
   <canvas id="fluid" aria-hidden="true"></canvas>
 
-  <!-- Page content (centered laterally) -->
   <main class="page" role="main">
     <img class="hero-img" src="./assets/images/background_image_01.png" alt="Background Image">
     <p><a class="contact" href="mailto:gooselightproductions@gmail.com">contact</a></p>
+
+    <!-- Placeholder for future text -->
+    <div class="future-text">
+      <h2></h2>
+      <p>Vicollage: Live interactive lo-fi analog video synthesis using old AV equipment & found materials.</p>
+    </div>
+
+    <!-- Responsive gallery for future content -->
+    <div class="future-content">
+      <!-- 15 image placeholders -->
+      <div class="future-item"><img src="./assets/images/Photo_01.jpg" alt="Photo 01"><p></p></div>
+      <div class="future-item"><img src="./assets/images/Photo_02.jpg" alt="Photo 02"><p></p></div>
+      <div class="future-item"><img src="./assets/images/Photo_03.jpg" alt="Photo 03"><p></p></div>
+      <div class="future-item"><img src="./assets/images/Photo_04.jpg" alt="Photo 04"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_05.jpg" alt="Photo 05"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_06.jpg" alt="Photo 06"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_07.jpg" alt="Photo 07"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_08.jpg" alt="Photo 08"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_09.jpg" alt="Photo 09"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_10.jpg" alt="Photo 10"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_11.jpg" alt="Photo 11"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_12.jpg" alt="Photo 12"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_13.jpg" alt="Photo 13"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_14.jpg" alt="Photo 14"><p></p></div>
+      <div class="future-item"><img src="./assets/images/photo_15.jpg" alt="Photo 15"><p></p></div>
+
+      <!-- 3 video placeholders -->
+      <div class="future-item">
+        <iframe src="https://www.youtube.com/watch?v=uAokNkgNvcg&t=540s&ab_channel=StudioCarquinez" title="Video 01" frameborder="0" allowfullscreen></iframe>
+        <p>Ephemerald Band - Studio Carquinez</p>
+      </div>
+      <div class="future-item">
+        <iframe src="https://www.youtube.com/watch?v=zwIZsX7OFqY&ab_channel=ConsolidatedElectric" title="Video 02" frameborder="0" allowfullscreen></iframe>
+        <p>Consolidated Electric - Deep Time</p>
+      </div>
+      <div class="future-item">
+        <iframe src="https://youtu.be/gLRyturQBfE" title="Video 03" frameborder="0" allowfullscreen></iframe>
+        <p>Modal Float - Blue or White or Yellow</p>
+      </div>
+    </div>
   </main>
 
-  <!-- Fragment shader text -->
+  <!-- Fragment shader and WebGL script -->
   <script id="frag-shader" type="x-shader/x-fragment">
-  precision highp float;
-  uniform vec2 u_resolution;
-  uniform float u_time;
-  uniform vec2 u_pointer;   // pointer in pixels (canvas coords)
-  uniform float u_aspect;
-  uniform float u_detail;   // 0..1 controls detail/complexity
-  uniform float u_speed;    // speed multiplier
+    precision highp float;
+    uniform vec2 u_resolution;
+    uniform float u_time;
+    uniform vec2 u_pointer;
+    uniform float u_aspect;
+    uniform float u_detail;
+    uniform float u_speed;
 
-  // Hash / random
-  float hash(vec2 p){
-    return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123);
-  }
-
-  // Value-noise (bilinear with smoothstep)
-  float noise(vec2 p){
-    vec2 i = floor(p);
-    vec2 f = fract(p);
-    vec2 u = f*f*(3.0-2.0*f);
-    float a = hash(i + vec2(0.0,0.0));
-    float b = hash(i + vec2(1.0,0.0));
-    float c = hash(i + vec2(0.0,1.0));
-    float d = hash(i + vec2(1.0,1.0));
-    return mix(mix(a,b,u.x), mix(c,d,u.x), u.y);
-  }
-
-  // Curl-like noise via finite differences of scalar noise
-  vec2 curl(vec2 p, float t){
-    float eps = 0.0008;
-    float n1 = noise(p + vec2(eps,0.0) + t*0.1);
-    float n2 = noise(p - vec2(eps,0.0) + t*0.1);
-    float n3 = noise(p + vec2(0.0,eps) + t*0.1);
-    float n4 = noise(p - vec2(0.0,eps) + t*0.1);
-    float dx = (n1 - n2) * 0.5 / eps;
-    float dy = (n3 - n4) * 0.5 / eps;
-    return vec2(dy, -dx);
-  }
-
-  // Simple palette function
-vec3 palette(float t){
-    // Base overall tint
-    vec3 base = vec3(0.10, 0.05, 0.08);
-
-    // Color anchors
-    vec3 orange = vec3(0.95, 0.60, 0.25);      // warm orange
-    vec3 purple = vec3(0.60, 0.20, 0.80);      // purple tones
-    vec3 yellow = vec3(0.94, 0.79, 0.23);      // #efca3a normalized
-
-    // Mix amounts driven by t
-    float o = smoothstep(0.0, 0.33, t) * (1.0 - smoothstep(0.33, 0.66, t));
-    float p = smoothstep(0.33, 0.66, t) * (1.0 - smoothstep(0.66, 1.0, t));
-    float y = smoothstep(0.66, 1.0, t);
-
-    // Final blended color
-    vec3 col = base +
-               orange * o +
-               purple * p +
-               yellow * y;
-
-    return col;
-}
-
-
-  void main(){
-    vec2 uv = gl_FragCoord.xy / u_resolution.xy;        // 0..1
-    // center-normalized coords with aspect correction
-    vec2 p = (gl_FragCoord.xy - 0.5*u_resolution.xy) / min(u_resolution.x, u_resolution.y);
-
-    // time warp for looping-friendly motion
-    float t = u_time * u_speed;
-
-    // Compose layered curl noise (fixed small loop for performance)
-    vec2 v = vec2(0.0);
-    float scale = 1.0;
-    float amp = mix(0.25, 0.75, u_detail); // detail controls amplitude
-    // 3 layers - cheap but visually rich; detail scales contribution
-    for(int i=0;i<3;i++){
-      vec2 c = curl(p * scale + float(i)*10.0, t + float(i)*2.0);
-      v += c * amp;
-      scale *= 2.0;
-      amp *= 0.5;
+    float hash(vec2 p){ return fract(sin(dot(p, vec2(127.1,311.7)))*43758.5453123); }
+    float noise(vec2 p){
+      vec2 i=floor(p);
+      vec2 f=fract(p);
+      vec2 u=f*f*(3.0-2.0*f);
+      float a=hash(i); float b=hash(i+vec2(1.0,0.0));
+      float c=hash(i+vec2(0.0,1.0)); float d=hash(i+vec2(1.0,1.0));
+      return mix(mix(a,b,u.x), mix(c,d,u.x), u.y);
     }
 
-    // pointer influence (normalized to -1..1, y flipped)
-    vec2 mp = u_pointer.xy / u_resolution.xy * 2.0 - 1.0;
-    mp.y *= -1.0;
-    // scale pointer to canvas normalization
-    float dist = length((p - mp) * vec2(u_aspect, 1.0));
-    v += normalize(vec2(sin(t*2.0 + dist*6.0), cos(t*1.7 - dist*4.0))) * exp(-dist*5.0) * 1.4 * u_detail;
+    vec2 curl(vec2 p, float t){
+      float eps=0.0008;
+      float n1=noise(p+vec2(eps,0.0)+t*0.1);
+      float n2=noise(p-vec2(eps,0.0)+t*0.1);
+      float n3=noise(p+vec2(0.0,eps)+t*0.1);
+      float n4=noise(p-vec2(0.0,eps)+t*0.1);
+      float dx=(n1-n2)*0.5/eps;
+      float dy=(n3-n4)*0.5/eps;
+      return vec2(dy,-dx);
+    }
 
-    // advect uv by velocity
-    vec2 adv = uv + v * 0.06;
+    vec3 palette(float t){
+      vec3 base=vec3(0.10,0.05,0.08);
+      vec3 orange=vec3(0.95,0.60,0.25);
+      vec3 purple=vec3(0.60,0.20,0.80);
+      vec3 yellow=vec3(0.94,0.79,0.23);
+      float o=smoothstep(0.0,0.33,t)*(1.0-smoothstep(0.33,0.66,t));
+      float p=smoothstep(0.33,0.66,t)*(1.0-smoothstep(0.66,1.0,t));
+      float y=smoothstep(0.66,1.0,t);
+      return base + orange*o + purple*p + yellow*y;
+    }
 
-    // layered noise color
-    float n1 = noise(adv * (1.0 + u_detail*3.0) + vec2(t*0.12));
-    float n2 = noise(adv * (2.2 + u_detail*6.0) - vec2(t*0.07));
-    float mixv = clamp(n1*0.6 + n2*0.4, 0.0, 1.0);
-
-    vec3 col = palette(mixv + length(v)*0.12 + sin(t*0.2)*0.03);
-
-    // subtle vignette
-    float vign = smoothstep(0.95, 0.25, length((uv - 0.5) * vec2(u_aspect, 1.0)));
-    col *= mix(1.0, 0.75, vign);
-
-    gl_FragColor = vec4(col, 1.0);
-  }
+    void main(){
+      vec2 uv = gl_FragCoord.xy/u_resolution.xy;
+      vec2 p = (gl_FragCoord.xy-0.5*u_resolution.xy)/min(u_resolution.x,u_resolution.y);
+      float t = u_time*u_speed;
+      vec2 v = vec2(0.0);
+      float scale=1.0;
+      float amp = mix(0.25,0.75,u_detail);
+      for(int i=0;i<3;i++){
+        vec2 c=curl(p*scale+float(i)*10.0, t+float(i)*2.0);
+        v+=c*amp; scale*=2.0; amp*=0.5;
+      }
+      vec2 mp=u_pointer.xy/u_resolution.xy*2.0-1.0; mp.y*=-1.0;
+      float dist=length((p-mp)*vec2(u_aspect,1.0));
+      v+=normalize(vec2(sin(t*2.0+dist*6.0),cos(t*1.7-dist*4.0)))*exp(-dist*5.0)*1.4*u_detail;
+      vec2 adv=uv+v*0.06;
+      float n1=noise(adv*(1.0+u_detail*3.0)+vec2(t*0.12));
+      float n2=noise(adv*(2.2+u_detail*6.0)-vec2(t*0.07));
+      float mixv=clamp(n1*0.6+n2*0.4,0.0,1.0);
+      vec3 col=palette(mixv+length(v)*0.12+sin(t*0.2)*0.03);
+      float vign=smoothstep(0.95,0.25,length((uv-0.5)*vec2(u_aspect,1.0)));
+      col*=mix(1.0,0.75,vign);
+      gl_FragColor=vec4(col,1.0);
+    }
   </script>
 
   <script>
   (function(){
-    // ---- Setup ----
-    const canvas = document.getElementById('fluid');
-    const fragSrc = document.getElementById('frag-shader').textContent;
-    const gl = canvas.getContext('webgl', { antialias: true });
+    const canvas=document.getElementById('fluid');
+    const fragSrc=document.getElementById('frag-shader').textContent;
+    const gl=canvas.getContext('webgl',{antialias:true});
+    if(!gl){console.warn('WebGL not supported — fluid background disabled.'); return;}
 
-    // If WebGL not available, we exit gracefully (fallback bg color stays)
-    if(!gl){
-      console.warn('WebGL not supported — fluid background disabled.');
-      return;
-    }
-
-    // compile helpers
-    function compile(type, src){
-      const sh = gl.createShader(type);
-      gl.shaderSource(sh, src);
+    function compile(type,src){
+      const sh=gl.createShader(type);
+      gl.shaderSource(sh,src);
       gl.compileShader(sh);
-      if(!gl.getShaderParameter(sh, gl.COMPILE_STATUS)){
-        console.error('Shader compile error:', gl.getShaderInfoLog(sh));
-        return null;
-      }
+      if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){ console.error('Shader compile error:',gl.getShaderInfoLog(sh)); return null; }
       return sh;
     }
 
-    const vsrc = `
-      attribute vec2 a_pos;
-      void main(){ gl_Position = vec4(a_pos, 0.0, 1.0); }
-    `;
-    const vsh = compile(gl.VERTEX_SHADER, vsrc);
-    const fsh = compile(gl.FRAGMENT_SHADER, fragSrc);
-    if(!vsh || !fsh) return;
+    const vsrc='attribute vec2 a_pos; void main(){ gl_Position=vec4(a_pos,0.0,1.0); }';
+    const vsh=compile(gl.VERTEX_SHADER,vsrc);
+    const fsh=compile(gl.FRAGMENT_SHADER,fragSrc);
+    if(!vsh||!fsh) return;
 
-    const prog = gl.createProgram();
-    gl.attachShader(prog, vsh);
-    gl.attachShader(prog, fsh);
+    const prog=gl.createProgram();
+    gl.attachShader(prog,vsh); gl.attachShader(prog,fsh);
     gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog, gl.LINK_STATUS)){
-      console.error('Program link error', gl.getProgramInfoLog(prog));
-      return;
-    }
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ console.error('Program link error',gl.getProgramInfoLog(prog)); return; }
     gl.useProgram(prog);
 
-    // full-screen quad
-    const buf = gl.createBuffer();
-    gl.bindBuffer(gl.ARRAY_BUFFER, buf);
-    gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([
-      -1, -1,  1, -1,  -1, 1,
-      -1, 1,   1, -1,   1, 1
-    ]), gl.STATIC_DRAW);
-    const aPos = gl.getAttribLocation(prog, 'a_pos');
+    const buf=gl.createBuffer();
+    gl.bindBuffer(gl.ARRAY_BUFFER,buf);
+    gl.bufferData(gl.ARRAY_BUFFER,new Float32Array([-1,-1,1,-1,-1,1,-1,1,1,-1,1,1]),gl.STATIC_DRAW);
+    const aPos=gl.getAttribLocation(prog,'a_pos');
     gl.enableVertexAttribArray(aPos);
-    gl.vertexAttribPointer(aPos, 2, gl.FLOAT, false, 0, 0);
+    gl.vertexAttribPointer(aPos,2,gl.FLOAT,false,0,0);
 
-    // uniforms
-    const uResolution = gl.getUniformLocation(prog, 'u_resolution');
-    const uTime = gl.getUniformLocation(prog, 'u_time');
-    const uPointer = gl.getUniformLocation(prog, 'u_pointer');
-    const uAspect = gl.getUniformLocation(prog, 'u_aspect');
-    const uDetail = gl.getUniformLocation(prog, 'u_detail');
-    const uSpeed = gl.getUniformLocation(prog, 'u_speed');
+    const uResolution=gl.getUniformLocation(prog,'u_resolution');
+    const uTime=gl.getUniformLocation(prog,'u_time');
+    const uPointer=gl.getUniformLocation(prog,'u_pointer');
+    const uAspect=gl.getUniformLocation(prog,'u_aspect');
+    const uDetail=gl.getUniformLocation(prog,'u_detail');
+    const uSpeed=gl.getUniformLocation(prog,'u_speed');
 
-    // device pixel ratio aware resize
     function resizeCanvas(){
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      const w = Math.max(1, Math.floor(window.innerWidth));
-      const h = Math.max(1, Math.floor(window.innerHeight));
-      canvas.width = Math.floor(w * dpr);
-      canvas.height = Math.floor(h * dpr);
-      canvas.style.width = w + 'px';
-      canvas.style.height = h + 'px';
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      const dpr=Math.max(1,window.devicePixelRatio||1);
+      const w=Math.max(1,Math.floor(window.innerWidth));
+      const h=Math.max(1,Math.floor(window.innerHeight));
+      canvas.width=Math.floor(w*dpr);
+      canvas.height=Math.floor(h*dpr);
+      canvas.style.width=w+'px';
+      canvas.style.height=h+'px';
+      gl.viewport(0,0,canvas.width,canvas.height);
     }
-    window.addEventListener('resize', resizeCanvas);
+    window.addEventListener('resize',resizeCanvas);
     resizeCanvas();
 
-    // pointer tracking (canvas pixels)
-    let pointer = [0, 0];
+    let pointer=[0,0];
     function updatePointerFromEvent(e){
-      const rect = canvas.getBoundingClientRect();
-      const clientX = e.touches ? e.touches[0].clientX : e.clientX;
-      const clientY = e.touches ? e.touches[0].clientY : e.clientY;
-      // Map to CSS pixels, then scale to canvas pixel coords
-      const cssX = clientX - rect.left;
-      const cssY = clientY - rect.top;
-      const dpr = Math.max(1, window.devicePixelRatio || 1);
-      pointer[0] = cssX * dpr;
-      pointer[1] = cssY * dpr;
+      const rect=canvas.getBoundingClientRect();
+      const clientX=e.touches?e.touches[0].clientX:e.clientX;
+      const clientY=e.touches?e.touches[0].clientY:e.clientY;
+      const cssX=clientX-rect.left;
+      const cssY=clientY-rect.top;
+      const dpr=Math.max(1,window.devicePixelRatio||1);
+      pointer[0]=cssX*dpr;
+      pointer[1]=cssY*dpr;
     }
-    window.addEventListener('mousemove', (e) => updatePointerFromEvent(e));
-    window.addEventListener('touchmove', (e) => {
-      e.preventDefault();
-      updatePointerFromEvent(e);
-    }, { passive: false });
+    window.addEventListener('mousemove',(e)=>updatePointerFromEvent(e));
+    window.addEventListener('touchmove',(e)=>{ e.preventDefault(); updatePointerFromEvent(e); },{passive:false});
 
-    // quality adaptation: measure frame times initial seconds
-    let frameTimes = [];
-    let measuring = true;
-    const measureDuration = 1000; // ms
-    let measureStart = performance.now();
+    let frameTimes=[], measuring=true, measureDuration=1000, measureStart=performance.now();
+    let detail=1.0, speed=1.0;
+    let start=performance.now();
 
-    // default quality and speed
-    let detail = 1.0; // 0..1
-    let speed = 1.0;
-
-    // render loop
-    let start = performance.now();
     function render(){
-      const now = performance.now();
-      const t = (now - start) / 1000;
-
-      // measure frame times for the first second to adapt quality
+      const now=performance.now();
+      const t=(now-start)/1000;
       if(measuring){
-        frameTimes.push(performance.now());
-        if(performance.now() - measureStart > measureDuration){
-          // compute average delta
-          let deltas = 0;
-          for(let i=1;i<frameTimes.length;i++) deltas += (frameTimes[i]-frameTimes[i-1]);
-          const avg = deltas / Math.max(1, frameTimes.length-1);
-          // if avg frame > 40ms (~25fps) reduce detail; if >80ms, be very conservative
-          if(avg > 80){
-            detail = 0.35; speed = 0.6;
-          } else if(avg > 40){
-            detail = 0.6; speed = 0.8;
-          } else {
-            detail = 1.0; speed = 1.0;
-          }
-          measuring = false;
+        frameTimes.push(now);
+        if(now-measureStart>measureDuration){
+          let deltas=0;
+          for(let i=1;i<frameTimes.length;i++) deltas+=frameTimes[i]-frameTimes[i-1];
+          let avg=deltas/Math.max(1,frameTimes.length-1);
+          if(avg>80){detail=0.35; speed=0.6;}
+          else if(avg>40){detail=0.6; speed=0.8;}
+          else {detail=1.0; speed=1.0;}
+          measuring=false;
         }
       }
-
-      // set uniforms
-      gl.uniform2f(uResolution, canvas.width, canvas.height);
-      gl.uniform1f(uTime, t);
-      gl.uniform2f(uPointer, pointer[0] || 0.0, pointer[1] || 0.0);
-      const aspect = canvas.width / canvas.height;
-      gl.uniform1f(uAspect, aspect);
-      gl.uniform1f(uDetail, detail);
-      gl.uniform1f(uSpeed, speed);
-
-      gl.drawArrays(gl.TRIANGLES, 0, 6);
+      gl.uniform2f(uResolution,canvas.width,canvas.height);
+      gl.uniform1f(uTime,t);
+      gl.uniform2f(uPointer,pointer[0]||0.0,pointer[1]||0.0);
+      gl.uniform1f(uAspect,canvas.width/canvas.height);
+      gl.uniform1f(uDetail,detail);
+      gl.uniform1f(uSpeed,speed);
+      gl.drawArrays(gl.TRIANGLES,0,6);
       requestAnimationFrame(render);
     }
-
     requestAnimationFrame(render);
 
-    // Optional: pause animation on page hidden to save CPU/GPU
-    document.addEventListener('visibilitychange', function(){
-      if(document.hidden){
-        // stop rendering by setting speed to 0 (keeps one frame)
-        gl.uniform1f(uSpeed, 0.0);
-      } else {
-        gl.uniform1f(uSpeed, speed);
-      }
+    document.addEventListener('visibilitychange',function(){
+      if(document.hidden){ gl.uniform1f(uSpeed,0.0); } else { gl.uniform1f(uSpeed,speed); }
     });
-
   })();
   </script>
 </body>
