@@ -12,6 +12,7 @@
       color: white;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      overflow-x: hidden;
     }
 
     /* Fullscreen WebGL canvas */
@@ -22,10 +23,9 @@
       height: 100%;
       display: block;
       z-index: -1;
-      pointer-events: none;
+      pointer-events: none; /* important — does not steal scroll */
     }
 
-    /* Page content */
     .page {
       max-width: 1000px;
       margin: 0 auto;
@@ -54,7 +54,6 @@
       backdrop-filter: blur(4px);
     }
 
-    /* Placeholder text section */
     .future-text {
       margin: 40px 0;
       padding: 20px;
@@ -64,7 +63,6 @@
       font-size: 1rem;
     }
 
-    /* Future gallery section */
     .future-content {
       margin-top: 40px;
       display: flex;
@@ -82,8 +80,8 @@
     .future-item img,
     .future-item iframe {
       width: 100%;
-      height: auto;
       border-radius: 8px;
+      display: block;
     }
 
     .future-item p {
@@ -92,7 +90,6 @@
       color: #ccc;
     }
 
-    /* Responsive adjustments */
     @media (max-width:900px){
       .future-item { flex: 1 1 calc(50% - 20px); max-width: calc(50% - 20px); }
     }
@@ -101,78 +98,74 @@
       .future-item { flex: 1 1 100%; max-width: 100%; }
       .future-item iframe { height: 200px; }
     }
-
-    /* Accessibility: hide canvas from screen readers */
-    #fluid[aria-hidden="true"] { visibility: visible; }
   </style>
 </head>
 <body>
+
   <canvas id="fluid" aria-hidden="true"></canvas>
 
   <main class="page" role="main">
     <img class="hero-img" src="./assets/images/background_image_01.png" alt="Background Image">
     <p><a class="contact" href="mailto:gooselightproductions@gmail.com">contact</a></p>
 
-    <!-- Placeholder for future text -->
     <div class="future-text">
-      <h2></h2>
       <p>Vicollage: Live interactive lo-fi analog video synthesis using old AV equipment & found materials.</p>
     </div>
 
-    <!-- Responsive gallery for future content -->
     <div class="future-content">
-      <!-- 15 image placeholders -->
-      <div class="future-item"><img src="./assets/images/Photo_01.jpg" alt="Photo 01"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_02.jpg" alt="Photo 02"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_03.jpg" alt="Photo 03"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_04.jpg" alt="Photo 04"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_05.jpg" alt="Photo 05"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_06.jpg" alt="Photo 06"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_07.jpg" alt="Photo 07"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_08.jpg" alt="Photo 08"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_09.jpg" alt="Photo 09"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_10.jpg" alt="Photo 10"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_11.jpg" alt="Photo 11"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_12.jpg" alt="Photo 12"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_13.jpg" alt="Photo 13"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_14.jpg" alt="Photo 14"><p></p></div>
-      <div class="future-item"><img src="./assets/images/Photo_15.jpg" alt="Photo 15"><p></p></div>
 
-      <!-- 3 video placeholders with corrected embed URLs -->
+      <!-- 15 Uppercase Images -->
+      <div class="future-item"><img src="./assets/images/Photo_01.jpg" alt="Photo 01"></div>
+      <div class="future-item"><img src="./assets/images/Photo_02.jpg" alt="Photo 02"></div>
+      <div class="future-item"><img src="./assets/images/Photo_03.jpg" alt="Photo 03"></div>
+      <div class="future-item"><img src="./assets/images/Photo_04.jpg" alt="Photo 04"></div>
+      <div class="future-item"><img src="./assets/images/Photo_05.jpg" alt="Photo 05"></div>
+      <div class="future-item"><img src="./assets/images/Photo_06.jpg" alt="Photo 06"></div>
+      <div class="future-item"><img src="./assets/images/Photo_07.jpg" alt="Photo 07"></div>
+      <div class="future-item"><img src="./assets/images/Photo_08.jpg" alt="Photo 08"></div>
+      <div class="future-item"><img src="./assets/images/Photo_09.jpg" alt="Photo 09"></div>
+      <div class="future-item"><img src="./assets/images/Photo_10.jpg" alt="Photo 10"></div>
+      <div class="future-item"><img src="./assets/images/Photo_11.jpg" alt="Photo 11"></div>
+      <div class="future-item"><img src="./assets/images/Photo_12.jpg" alt="Photo 12"></div>
+      <div class="future-item"><img src="./assets/images/Photo_13.jpg" alt="Photo 13"></div>
+      <div class="future-item"><img src="./assets/images/Photo_14.jpg" alt="Photo 14"></div>
+      <div class="future-item"><img src="./assets/images/Photo_15.jpg" alt="Photo 15"></div>
+
+      <!-- YouTube Embeds -->
       <div class="future-item">
         <iframe 
           src="https://www.youtube.com/embed/uAokNkgNvcg?start=540" 
-          title="Video 01" 
-          frameborder="0" 
+          title="Ephemerald Band - Studio Carquinez"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+          allowfullscreen></iframe>
         <p>Ephemerald Band - Studio Carquinez</p>
       </div>
+
       <div class="future-item">
         <iframe 
-          src="https://www.youtube.com/embed/zwIZsX7OFqY" 
-          title="Video 02" 
-          frameborder="0" 
+          src="https://www.youtube.com/embed/zwIZsX7OFqY"
+          title="Consolidated Electric - Deep Time"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
+          allowfullscreen></iframe>
         <p>Consolidated Electric - Deep Time</p>
       </div>
+
       <div class="future-item">
         <iframe 
-          src="https://www.youtube.com/embed/gLRyturQBfE" 
-          title="Video 03" 
-          frameborder="0" 
+          src="https://www.youtube.com/embed/gLRyturQBfE"
+          title="Modal Float - Blue or White or Yellow"
+          frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-          allowfullscreen>
-        </iframe>
-        <p>Modal Float - Blue or White or Yellow</p>
+          allowfullscreen></iframe>
+        <p>Modal Float – Blue or White or Yellow</p>
       </div>
+
     </div>
   </main>
 
-  <!-- Fragment shader and WebGL script -->
+  <!-- Fluid Shader -->
   <script id="frag-shader" type="x-shader/x-fragment">
     precision highp float;
     uniform vec2 u_resolution;
@@ -250,7 +243,10 @@
       const sh=gl.createShader(type);
       gl.shaderSource(sh,src);
       gl.compileShader(sh);
-      if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){ console.error('Shader compile error:',gl.getShaderInfoLog(sh)); return null; }
+      if(!gl.getShaderParameter(sh,gl.COMPILE_STATUS)){
+        console.error('Shader error:',gl.getShaderInfoLog(sh));
+        return null;
+      }
       return sh;
     }
 
@@ -260,9 +256,13 @@
     if(!vsh||!fsh) return;
 
     const prog=gl.createProgram();
-    gl.attachShader(prog,vsh); gl.attachShader(prog,fsh);
+    gl.attachShader(prog,vsh);
+    gl.attachShader(prog,fsh);
     gl.linkProgram(prog);
-    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){ console.error('Program link error',gl.getProgramInfoLog(prog)); return; }
+    if(!gl.getProgramParameter(prog,gl.LINK_STATUS)){
+      console.error('Link error',gl.getProgramInfoLog(prog));
+      return;
+    }
     gl.useProgram(prog);
 
     const buf=gl.createBuffer();
@@ -280,66 +280,59 @@
     const uSpeed=gl.getUniformLocation(prog,'u_speed');
 
     function resizeCanvas(){
-      const dpr=Math.max(1,window.devicePixelRatio||1);
-      const w=Math.max(1,Math.floor(window.innerWidth));
-      const h=Math.max(1,Math.floor(window.innerHeight));
-      canvas.width=Math.floor(w*dpr);
-      canvas.height=Math.floor(h*dpr);
-      canvas.style.width=w+'px';
-      canvas.style.height=h+'px';
+      const dpr = window.devicePixelRatio || 1;
+      const w = window.innerWidth;
+      const h = window.innerHeight;
+      canvas.width = w * dpr;
+      canvas.height = h * dpr;
+      canvas.style.width = w + 'px';
+      canvas.style.height = h + 'px';
       gl.viewport(0,0,canvas.width,canvas.height);
     }
+
     window.addEventListener('resize',resizeCanvas);
     resizeCanvas();
 
     let pointer=[0,0];
+
     function updatePointerFromEvent(e){
       const rect=canvas.getBoundingClientRect();
-      const clientX=e.touches?e.touches[0].clientX:e.clientX;
-      const clientY=e.touches?e.touches[0].clientY:e.clientY;
-      const cssX=clientX-rect.left;
-      const cssY=clientY-rect.top;
-      const dpr=Math.max(1,window.devicePixelRatio||1);
-      pointer[0]=cssX*dpr;
-      pointer[1]=cssY*dpr;
+      const touch=e.touches ? e.touches[0] : e;
+      pointer[0] = (touch.clientX - rect.left) * (window.devicePixelRatio || 1);
+      pointer[1] = (touch.clientY - rect.top) * (window.devicePixelRatio || 1);
     }
-    window.addEventListener('mousemove',(e)=>updatePointerFromEvent(e));
-    window.addEventListener('touchmove',(e)=>{ e.preventDefault(); updatePointerFromEvent(e); },{passive:false});
 
-    let frameTimes=[], measuring=true, measureDuration=1000, measureStart=performance.now();
-    let detail=1.0, speed=1.0;
+    /* --- MOBILE SCROLL FIX --- */
+    window.addEventListener('touchmove', (e) => {
+      if (e.target === canvas) {
+        e.preventDefault();   // only block scrolling when finger is ON the canvas
+        updatePointerFromEvent(e);
+      }
+    }, { passive: false });
+
+    window.addEventListener('mousemove', (e) => updatePointerFromEvent(e));
+
     let start=performance.now();
+    let detail=1.0, speed=1.0;
 
     function render(){
       const now=performance.now();
       const t=(now-start)/1000;
-      if(measuring){
-        frameTimes.push(now);
-        if(now-measureStart>measureDuration){
-          let deltas=0;
-          for(let i=1;i<frameTimes.length;i++) deltas+=frameTimes[i]-frameTimes[i-1];
-          let avg=deltas/Math.max(1,frameTimes.length-1);
-          if(avg>80){detail=0.35; speed=0.6;}
-          else if(avg>40){detail=0.6; speed=0.8;}
-          else {detail=1.0; speed=1.0;}
-          measuring=false;
-        }
-      }
+
       gl.uniform2f(uResolution,canvas.width,canvas.height);
       gl.uniform1f(uTime,t);
-      gl.uniform2f(uPointer,pointer[0]||0.0,pointer[1]||0.0);
+      gl.uniform2f(uPointer,pointer[0],pointer[1]);
       gl.uniform1f(uAspect,canvas.width/canvas.height);
       gl.uniform1f(uDetail,detail);
       gl.uniform1f(uSpeed,speed);
+
       gl.drawArrays(gl.TRIANGLES,0,6);
       requestAnimationFrame(render);
     }
-    requestAnimationFrame(render);
 
-    document.addEventListener('visibilitychange',function(){
-      if(document.hidden){ gl.uniform1f(uSpeed,0.0); } else { gl.uniform1f(uSpeed,speed); }
-    });
+    requestAnimationFrame(render);
   })();
   </script>
+
 </body>
 </html>
